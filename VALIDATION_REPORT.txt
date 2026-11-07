@@ -1,0 +1,23 @@
+ANDROID BIN EXTRACTOR PORT — VALIDATION REPORT
+
+Reference:
+  RE4_BIN_TOOLS_v0_4_55_DIRECT_BIN_WEIGHT_BIND.zip
+  KENZO_IMPORT_BIN_RE4_PS2/bin_extractor.py
+
+Java validation:
+  javac compiled BinExtractor.java successfully.
+  Test fixtures: pl00_0000(1).BIN and pl00_0002.BIN.
+
+Byte-for-byte export comparison against v0.4.55 Python reference:
+  pl00_0000(1).BIN: OBJ identical, MTL identical, SMD identical.
+  pl00_0002.BIN: OBJ identical, MTL identical, SMD identical.
+
+Direct BIN weight checks:
+  pl00_0000(1).BIN: vertices=2606, used=2604, weighted=2606,
+                    missingUsed=0, segments=64.
+  pl00_0002.BIN:   vertices=662, used=660, weighted=662,
+                    missingUsed=0, segments=17.
+
+Not tested here:
+  Android Gradle build, APK installation, Storage Access Framework behavior
+  on-device, and app UI extraction on the user's phone.

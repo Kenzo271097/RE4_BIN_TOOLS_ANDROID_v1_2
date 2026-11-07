@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- HEADER HIJAU -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="#008577">
+
+        <Button
+            android:id="@+id/btnTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="THEME"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="RE4_BIN_TOOLS"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="📖 GUIDE"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- AREA KONTEN -->
+    <ScrollView
+        android:id="@+id/mainScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="?android:attr/colorBackground"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OBJ / MTL / SMD"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:paddingTop="25dp"
+                android:paddingBottom="30dp" />
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="READY - Menunggu file BIN"
+                android:textColor="?android:attr/textColorPrimary"
+                android:background="#252525"
+                android:padding="18dp"
+                android:layout_marginBottom="18dp" />
+
+            <Button
+                android:id="@+id/btnSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PILIH FILE BIN" />
+
+            <Button
+                android:id="@+id/btnOutput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PILIH FOLDER OUTPUT" />
+
+            <Button
+                android:id="@+id/btnExtract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EXTRACT BIN" />
+
+            <Button
+                android:id="@+id/btnRepackObj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REPACK OBJ" />
+
+            <Button
+                android:id="@+id/btnRepackSmd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REPACK SMD" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RESIDENT EVIL 4  •  BIN TOOLS&#10;BY KENZO"
+                android:textColor="#888888"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="24dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
