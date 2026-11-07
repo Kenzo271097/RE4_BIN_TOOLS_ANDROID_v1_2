@@ -112,6 +112,37 @@
                 android:layout_height="wrap_content"
                 android:text="OPEN SOURCE LICENSES" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="18dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/txtAppVersion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="RE4 BIN TOOLS v1.2.1"
+                    android:textColor="#888888"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/btnCheckUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check Update"
+                    android:textColor="#80CBC4"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground" />
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +150,7 @@
                 android:textColor="#888888"
                 android:textSize="12sp"
                 android:gravity="center"
-                android:padding="24dp" />
+                android:padding="12dp" />
 
         </LinearLayout>
     </ScrollView>

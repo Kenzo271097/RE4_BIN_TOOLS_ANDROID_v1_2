@@ -32,6 +32,7 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
 
     private TextView txtStatus;
+    private UpdateManager updateManager;
     private List<Uri> binUris = new ArrayList<>();
     private Uri outputUri;
 
@@ -97,6 +98,14 @@ btnRepackObj.setOnClickListener(v -> {
             startActivityForResult(i, PICK_SMD);
         });
 
+
+
+        updateManager = new UpdateManager(this);
+
+        TextView btnCheckUpdate = findViewById(R.id.btnCheckUpdate);
+        btnCheckUpdate.setOnClickListener(v ->
+            updateManager.checkForUpdates(true)
+        );
 
         writeLog("Aplikasi dibuka.");
     }
@@ -994,9 +1003,36 @@ btnRepackObj.setOnClickListener(v -> {
         }
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (updateManager != null) {
+            updateManager.startNetworkMonitoring();
+            updateManager.checkForUpdates(false);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        if (updateManager != null) {
+            updateManager.stopNetworkMonitoring();
+        }
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (updateManager != null) {
+            updateManager.resumeAfterPermission();
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (updateManager != null) updateManager.shutdown();
         executor.shutdown();
     }
 }

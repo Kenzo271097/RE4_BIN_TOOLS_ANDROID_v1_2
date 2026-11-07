@@ -8,8 +8,8 @@ android {
         applicationId "com.kenzo.re4bintools"
         minSdkVersion 23
         targetSdkVersion 35
-        versionCode 3
-        versionName "1.2"
+        versionCode 4
+        versionName "1.2.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,6 +17,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     compileOptions {
@@ -31,6 +35,7 @@ dependencies {
 
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core:1.13.1'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.13.2'
