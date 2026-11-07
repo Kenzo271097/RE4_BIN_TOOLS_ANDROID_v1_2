@@ -28,23 +28,38 @@ RE4 BIN TOOLS brings BIN extraction and model repacking workflows to Android. It
 - Operation logs and application guide.
 - OPEN SOURCE LICENSES button for viewing included license texts.
 
+## What's New in v1.2.1
+
+### Open Source Licenses
+- Added an in-app screen for viewing included third-party license texts.
+
+### Check Update
+- Added manual update checking through the GitHub Releases API.
+- Displays release information and download progress.
+- Verifies downloaded APK using GitHub's SHA-256 digest.
+- Opens Android Package Installer for user confirmation.
+
+Updates are not installed silently.
+
 ## Technical Architecture
 
 | Source file | Responsibility |
 |---|---|
-|  | Android UI and workflows |
-|  | BIN parsing and extraction |
-|  | BIN output structure generation |
-|  | Source metadata adaptation |
-|  | OBJ parsing |
-|  | MTL parsing |
-|  | SMD parsing |
-|  | SMD-to-BIN conversion |
-|  | Repacking coordination |
-|  | Segment construction |
-|  | Strip compression |
-|  | Repack validation |
-|  | IDXPS2BIN export support |
+| `MainActivity.java` | Android UI and workflows |
+| `BinExtractor.java` | BIN parsing and extraction |
+| `BinRepackWriter.java` | BIN output structure generation |
+| `BinSourceAdapter.java` | Source metadata adaptation |
+| `ObjParser.java` | OBJ parsing |
+| `ObjMtlParser.java` | MTL parsing |
+| `SmdParser.java` | SMD parsing |
+| `SmdRepackPipeline.java` | SMD-to-BIN conversion |
+| `RepackPipeline.java` | Repacking coordination |
+| `RepackSegmentBuilder.java` | Segment construction |
+| `RepackStripCompressor.java` | Strip compression |
+| `RepackValidator.java` | Repack validation |
+| `IdxPs2BinExporter.java` | IDXPS2BIN export support |
+
+| `UpdateManager.java` | GitHub update checking and APK download |
 
 ## Validation
 
@@ -59,8 +74,8 @@ Weight diagnostics:
 
 | Test BIN | Vertices | Used | Weighted | Missing used weights | Segments |
 |---|---:|---:|---:|---:|---:|
-|  | 2606 | 2604 | 2606 | 0 | 64 |
-|  | 662 | 660 | 662 | 0 | 17 |
+| Sample 1 | 2606 | 2604 | 2606 | 0 | 64 |
+| Sample 2 | 662 | 660 | 662 | 0 | 17 |
 
 These results apply only to the listed test files and do not guarantee compatibility with every BIN variant. The Android application has also been built and installed on a device; repacking tests remain sample-based.
 
@@ -68,11 +83,11 @@ These results apply only to the listed test files and do not guarantee compatibi
 
 | Setting | Value |
 |---|---|
-| Package |  |
+| Package | `com.kenzo.re4bintools` |
 | Minimum Android | 6.0 (API 23) |
 | Compile SDK | 35 |
 | Target SDK | 35 |
-| Version | 1.2 (version code 3) |
+| Version | 1.2.1 (version code 4) |
 | Java compatibility | Java 8 |
 | Gradle wrapper | 8.13 |
 | Android Gradle Plugin | 8.12.0 |
@@ -83,7 +98,7 @@ From the project root, run:
 
 
 
-APK output: .
+APK output: `app/build/outputs/apk/debug/app-debug.apk`
 
 ## Credits and References
 
