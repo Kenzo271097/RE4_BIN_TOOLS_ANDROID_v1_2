@@ -106,6 +106,12 @@
                 android:layout_height="wrap_content"
                 android:text="REPACK SMD" />
 
+            <Button
+                android:id="@+id/btnLicenses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OPEN SOURCE LICENSES" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

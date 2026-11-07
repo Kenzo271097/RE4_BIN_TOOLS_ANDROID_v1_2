@@ -61,9 +61,11 @@ public class MainActivity extends AppCompatActivity {
         Button btnRepackSmd = findViewById(R.id.btnRepackSmd);
         Button btnTheme = findViewById(R.id.btnTheme);
         Button btnGuide = findViewById(R.id.btnGuide);
+        Button btnLicenses = findViewById(R.id.btnLicenses);
         applyTheme();
         btnTheme.setOnClickListener(v -> chooseTheme());
         btnGuide.setOnClickListener(v -> showGuide());
+        btnLicenses.setOnClickListener(v -> showOpenSourceLicenses());
 
         btnSelect.setOnClickListener(v -> {
             Intent i = new Intent(Intent.ACTION_OPEN_DOCUMENT);
@@ -97,6 +99,64 @@ btnRepackObj.setOnClickListener(v -> {
 
 
         writeLog("Aplikasi dibuka.");
+    }
+
+
+    private void showOpenSourceLicenses() {
+        String[] licenses = {
+            "JADERLINK - MIT License",
+            "CjClutter ObjLoader - MIT License"
+        };
+
+        String[] files = {
+            "JADERLINK_LICENSE.txt",
+            "OBJLOADER_LICENSE.txt"
+        };
+
+        new AlertDialog.Builder(this)
+            .setTitle("OPEN SOURCE LICENSES")
+            .setItems(licenses, (dialog, which) -> {
+                showLicenseText(licenses[which], files[which]);
+            })
+            .setNegativeButton("TUTUP", null)
+            .show();
+    }
+
+    private void showLicenseText(String title, String fileName) {
+        try (InputStream input = getAssets().open(fileName);
+             BufferedReader reader = new BufferedReader(
+                 new InputStreamReader(input, "UTF-8"))) {
+
+            StringBuilder content = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append('\n');
+            }
+
+            TextView text = new TextView(this);
+            text.setText(content.toString());
+            text.setTextSize(13);
+            text.setTextIsSelectable(true);
+            text.setPadding(24, 20, 24, 20);
+
+            android.widget.ScrollView scroll =
+                new android.widget.ScrollView(this);
+            scroll.addView(text);
+
+            new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setView(scroll)
+                .setPositiveButton("TUTUP", null)
+                .show();
+
+        } catch (Exception e) {
+            Toast.makeText(
+                this,
+                "Gagal membaca lisensi: " + e.getMessage(),
+                Toast.LENGTH_LONG
+            ).show();
+        }
     }
 
     private void chooseTheme() {

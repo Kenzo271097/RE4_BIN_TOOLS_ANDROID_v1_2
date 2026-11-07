@@ -9,7 +9,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 35
         versionCode 3
-        versionName "1.2-extension-fix"
+        versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
